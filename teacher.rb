@@ -1,14 +1,12 @@
-require "./person.rb"
+require './person'
 
-class Teacher < person
+class Teacher < Person
+  def initialize(age, name, parent_permission, specialization)
+    super(name, age, parent_permission)
+    @specialization = specialization
+  end
 
-    def initialize(name, age, parent_permission, specialization)
-        super(name, age, parent_permission)
-        @specialization = specialization
-    end
-
-    def can_use_services?
-        true
-        end 
-
+  def can_use_services?
+    true
+  end
 end
