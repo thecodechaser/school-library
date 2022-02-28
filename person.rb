@@ -15,12 +15,14 @@ class Person
             return true
         else 
             return false
+        end
 
      def can_use_services?
         if is_of_age || @parent_permission
             return true
         else 
-            return false       
+            return false
+        end       
 
     private :is_of_age
 
