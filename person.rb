@@ -7,6 +7,18 @@ class Person
 
     end
 
-    
+    attr_read :id, :name, :age
+    attr_write :name, :age
+
+    def is_of_age?
+        if @age >= 18
+            return true
+        else 
+            return false
+
+          
+
+    private :is_of_age
+
 
 end
