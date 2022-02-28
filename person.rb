@@ -6,8 +6,8 @@ class Person
     @parent_permission = parent_permission
   end
 
-  attr_read :id, :name, :age
-  attr_write :name, :age
+  attr_reader :id, :name, :age
+  attr_writer :name, :age
 
   def can_use_services?
     if of_age || @parent_permission
