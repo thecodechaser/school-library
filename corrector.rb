@@ -1,0 +1,3 @@
+class Corrector
+
+end
