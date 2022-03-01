@@ -1,0 +1,3 @@
+class Rental
+
+end
