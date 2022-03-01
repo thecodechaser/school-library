@@ -4,4 +4,6 @@ class Book
         @title
         @author
     end
+
+    attr_accessor :title, :author
 end
