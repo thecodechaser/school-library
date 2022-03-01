@@ -20,6 +20,10 @@ class Person
     end
   end
 
+  def validate_name
+
+  end
+
   private
 
   def of_age?
