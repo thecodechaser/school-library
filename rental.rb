@@ -4,5 +4,5 @@ class Rental
         @date = date
     end
 
-
+    attr_accessor :date
 end
