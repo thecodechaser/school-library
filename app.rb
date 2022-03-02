@@ -35,7 +35,21 @@ end
 
   def create_student; end
 
-  def create_person; end
+  def create_person
+    puts "\nPlease choose a option by entring a number
+    1 -  Create a teacher
+    2 -  Create a student"
+    option = gets.chomp.to_i
+    case option
+    when 1
+        create_teacher
+    when 2
+        create_student
+    else 
+        puts "Please select a correct option"
+        create_person
+    end
+end
 
   def create_book
     puts 'Enter book title'
