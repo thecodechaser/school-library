@@ -30,7 +30,12 @@ class App
     end
     
     def create_book
-    
+        puts "Enter book title"
+        title = gets.chomp
+        puts "Enter book author"
+        author =  gets.chomp
+        @books.push(Book.new(title, author))
+        puts "Book create successfully"
     end
     
     def create_rental
@@ -75,7 +80,7 @@ class App
 
     def run
         @books = []
-        @person = []
+        @persons = []
         puts "Welcome to school library!"
     print_message()
     end
