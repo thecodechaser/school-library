@@ -31,18 +31,27 @@ end
 
   def list_rentals; end
 
-  def create_teacher; end
+  def create_teacher(name, age)
+    puts "Specialization: "
+    specialization =  gets.chomp
+    Teacher.new(age, specialization, name)
+end
 
-  def create_student; end
+  def create_student(name, age)
+    
+end
 
   def create_person
     puts "\nPlease choose a option by entring a number
     1 -  Create a teacher
     2 -  Create a student"
     option = gets.chomp.to_i
+    print "name: "
+    age = gets.chomp
+    print "age: "
     case option
     when 1
-        create_teacher
+        @persoons.push(create_teacher(name, age))
     when 2
         create_student
     else 
