@@ -19,7 +19,9 @@ def create_person
 
 end
 
+def create_book
 
+end
 
 def handle_user_input(input)
     case input
