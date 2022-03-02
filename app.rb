@@ -38,7 +38,17 @@ end
 end
 
   def create_student(name, age)
-    
+    print "Parent permission [y/n]:"
+    permission = gets.chomp
+    case permission
+    when "YES"
+        Student.new(age, name, true)
+    when "NO"
+        Student.new(age, name, false)
+    else
+        puts "Please select a correct option"
+        create_student(name, age)
+    end
 end
 
   def create_person
