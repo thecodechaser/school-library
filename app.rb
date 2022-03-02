@@ -7,7 +7,14 @@ class App
     
     
     def list_books
-    
+        if @books.length==0 
+            puts "There's no book, Please add books first"
+
+        else 
+    @books.each_with_index do |book, index| 
+        puts "#{index+1} - Book title: #{book.title}, Book author: #{book.author}"
+    end
+        end
     end
     
     def list_people
