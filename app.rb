@@ -17,62 +17,62 @@ class App
 
   def list_people
     if @persons.length.zero?
-        puts "There's no people, Please add a person first"
-      else
-        @persons.each_with_index do |person, index|
-            if person.is_a?(Teacher)
-                puts "[Teacher] #{index+1} - Name: #{person.name}, Age: #{person.age}"
-            else 
-                puts "[Student] #{index+1} - Name: #{person.name}, Age: #{person.age}"
-            end
+      puts "There's no people, Please add a person first"
+    else
+      @persons.each_with_index do |person, index|
+        if person.is_a?(Teacher)
+          puts "[Teacher] #{index + 1} - Name: #{person.name}, Age: #{person.age}"
+        else
+          puts "[Student] #{index + 1} - Name: #{person.name}, Age: #{person.age}"
         end
+      end
     end
-end
+  end
 
   def list_rentals; end
 
   def create_teacher(name, age)
-    print "Specialization: "
-    specialization =  gets.chomp
+    print 'Specialization: '
+    specialization = gets.chomp
     Teacher.new(age, specialization, name)
-end
+  end
 
   def create_student(name, age)
-    print "Parent permission [y/n]:"
+    print 'Parent permission [y/n]:'
     permission = gets.chomp
     case permission
-    when "y"
-        Student.new(age, name, true)
-    when "n"
-        Student.new(age, name, false)
+    when 'y'
+      Student.new(age, name, true)
+    when 'n'
+      Student.new(age, name, false)
     else
-        puts "Please select a correct option"
-        create_student(name, age)
+      puts 'Please select a correct option'
+      create_student(name, age)
     end
-end
+  end
 
   def create_person
     puts "\nPlease choose a option by entring a number
     1 -  Create a teacher
     2 -  Create a student"
     option = gets.chomp.to_i
-    if option !=1 && option !=2
-    puts "Please select a correct option"
-    create_person
+    if option != 1 && option != 2
+      puts 'Please select a correct option'
+      create_person
     end
-    print "name: "
+    print 'name: '
     name = gets.chomp
-    print "age: "
+    print 'age: '
     age = gets.chomp
     case option
     when 1
-        @persons.push(create_teacher(name, age))
-        puts "Teacher created successfully!"
+      @persons.push(create_teacher(name, age))
+      puts 'Teacher created successfully!'
     when 2
-        @persons.push(create_student(name, age))
-        puts "Student created successfully!"
+      @persons.push(create_student(name, age))
+      puts 'Student created successfully!'
     end
-end
+  end
 
   def create_book
     puts 'Enter book title'
