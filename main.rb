@@ -23,6 +23,10 @@ def create_book
 
 end
 
+def create_rental
+
+end
+
 def handle_user_input(input)
     case input
     when 1
