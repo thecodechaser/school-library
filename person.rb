@@ -1,4 +1,5 @@
 require './corrector'
+require './rental'
 
 class Person
   def initialize(age, name = 'Unknown', parent_permission: true)
@@ -24,11 +25,6 @@ class Person
   def validate_name
     @name = @corrector.correct_name(@name)
   end
-
-  def add_rental(rental)
-    @rentals.push(rental)
-    rental.person = self
-end
 
   private
 
