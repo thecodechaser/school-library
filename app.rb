@@ -31,23 +31,31 @@ class App
 
   def list_rentals; end
 
-  def create_teacher(name, age)
+  def create_teacher
+    print 'Teacher name: '
+    name = gets.chomp
+    print 'Teacher age: '
+    age = gets.chomp
     print 'Specialization: '
     specialization = gets.chomp
     Teacher.new(age, specialization, name)
   end
 
-  def create_student(name, age)
+  def create_student
+    print 'Student name: '
+    name = gets.chomp
+    print 'Student age: '
+    age = gets.chomp
     print 'Parent permission [y/n]:'
     permission = gets.chomp
     case permission
     when 'y'
-      Student.new(age, name, true)
+      Student.new(age, name)
     when 'n'
-      Student.new(age, name, false)
+      Student.new(age, name, parent_permission: false)
     else
       puts 'Please select a correct option'
-      create_student(name, age)
+      create_student
     end
   end
 
@@ -56,21 +64,16 @@ class App
     1 -  Create a teacher
     2 -  Create a student"
     option = gets.chomp.to_i
-    if option != 1 && option != 2
-      puts 'Please select a correct option'
-      create_person
-    end
-    print 'name: '
-    name = gets.chomp
-    print 'age: '
-    age = gets.chomp
     case option
     when 1
-      @persons.push(create_teacher(name, age))
+      @persons.push(create_teacher)
       puts 'Teacher created successfully!'
     when 2
-      @persons.push(create_student(name, age))
+      @persons.push(create_student)
       puts 'Student created successfully!'
+    else
+      puts 'Please select a correct option'
+      create_person
     end
   end
 
