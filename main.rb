@@ -7,7 +7,9 @@ def list_books
 
 end
 
+def list_people
 
+end
 
 def handle_user_input(input)
     case input
