@@ -6,7 +6,7 @@ require './rental'
 class App
   def list_books
     if @books.length.zero?
-      puts "There's no book, Please add books first"
+      puts "There's no book, Please add a book first"
 
     else
       @books.each_with_index do |book, index|
@@ -17,13 +17,13 @@ class App
 
   def list_people
     if @persons.length.zero?
-        puts "There's no book, Please add books first"
+        puts "There's no people, Please add a person first"
       else
         @persons.each_with_index do |person, index|
-            if person === Teacher
-                puts "[Teacher] #{index+1} - Age: #{person.name}, #{person.age}"
+            if person.is_a?(Teacher)
+                puts "[Teacher] #{index+1} - Name: #{person.name}, Age: #{person.age}"
             else 
-                puts "[Student] #{index+1} - Age: #{person.name}, #{person.age}"
+                puts "[Student] #{index+1} - Name: #{person.name}, Age: #{person.age}"
             end
         end
     end
@@ -32,7 +32,7 @@ end
   def list_rentals; end
 
   def create_teacher(name, age)
-    puts "Specialization: "
+    print "Specialization: "
     specialization =  gets.chomp
     Teacher.new(age, specialization, name)
 end
@@ -41,9 +41,9 @@ end
     print "Parent permission [y/n]:"
     permission = gets.chomp
     case permission
-    when "YES"
+    when "y"
         Student.new(age, name, true)
-    when "NO"
+    when "n"
         Student.new(age, name, false)
     else
         puts "Please select a correct option"
@@ -56,17 +56,21 @@ end
     1 -  Create a teacher
     2 -  Create a student"
     option = gets.chomp.to_i
+    if option !=1 && option !=2
+    puts "Please select a correct option"
+    create_person
+    end
     print "name: "
-    age = gets.chomp
+    name = gets.chomp
     print "age: "
+    age = gets.chomp
     case option
     when 1
-        @persoons.push(create_teacher(name, age))
+        @persons.push(create_teacher(name, age))
+        puts "Teacher created successfully!"
     when 2
-        create_student
-    else 
-        puts "Please select a correct option"
-        create_person
+        @persons.push(create_student(name, age))
+        puts "Student created successfully!"
     end
 end
 
