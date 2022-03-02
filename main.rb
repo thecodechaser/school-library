@@ -15,6 +15,10 @@ def list_rentals
 
 end
 
+def create_person
+
+end
+
 
 
 def handle_user_input(input)
