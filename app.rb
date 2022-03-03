@@ -17,7 +17,7 @@ class App
 
   def list_persons
     if @persons.length.zero?
-      puts "There's no people, Please add a person first"
+      puts "There's no person, Please add a person first"
     else
       @persons.each_with_index do |person, index|
         if person.is_a?(Teacher)
@@ -87,17 +87,23 @@ class App
   end
 
   def create_rental
-    print 'Select a book by number: '
+    puts 'Select a book by number '
     list_books
+    if @books.length.zero?
+      print_message
+    end
     book_index = gets.chomp.to_i
-    print 'Select a person by number: '
+    puts 'Select a person by number: '
     list_persons
+    if @persons.length.zero?
+      print_message
+    end
     person_index = gets.chomp.to_i
     print 'Enter date: '
     date = gets.chomp
     Rental.new(date, @persons[book_index - 1], @books[book_index - 1])
-    puts "Rental created succesfully - book: #{@books[book_index - 1].title},
-    Person: #{@persons[person_index - 1].name}, Date: #{date}"
+    puts "Rental created succesfully - 
+    book: #{@books[book_index - 1].title}, Person: #{@persons[person_index - 1].name}, Date: #{date}"
   end
 
   def handle_input(option)
