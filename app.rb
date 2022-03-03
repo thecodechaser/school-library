@@ -86,7 +86,17 @@ class App
     puts 'Book create successfully'
   end
 
-  def create_rental; end
+  def create_rental
+    print "Select a book by number: "
+    list_books
+    book_index = gets.chomp.to_i
+    print "Select a person by number: "
+    list_people
+    person_index = gets.chomp.to_i
+    print "Enter date: "
+    date = gets.chomp
+    puts "Rental created succesfully - book: #{@books[book_index-1].title}, Person: #{@persons[person_index-1].name}, Date: #{date}"
+  end
 
   def handle_input(option)
     case option
