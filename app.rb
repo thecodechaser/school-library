@@ -36,7 +36,7 @@ class App
     person_index = gets.chomp.to_i
     rentals = @persons[person_index - 1].rentals
     if rentals.length.zero?
-      puts 'No rentals for this person'
+      puts 'No rentals for this person, Please add a rental first'
     else
       rentals.each_with_index do |rent, index|
         puts "#{index + 1} - Date: #{rent.date}, Book: #{rent.book.title} by #{rent.person.name}"
@@ -132,7 +132,7 @@ class App
     when 6
       list_rentals
     when 7
-      puts 'Thank you for using this app'
+      puts 'Thank you for using this app - Written by Ranjeet Singh'
       exit
     else puts 'Please select a valid option'
          print_message
@@ -157,7 +157,7 @@ class App
   def run
     @books = []
     @persons = []
-    puts 'Welcome to school library!'
+    puts 'Welcome to school library! - Ranjeet Singh'
     print_message
   end
 end
