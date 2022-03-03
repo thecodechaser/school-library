@@ -7,7 +7,6 @@ class App
   def list_books
     if @books.length.zero?
       puts "There's no book, Please add a book first"
-
     else
       @books.each_with_index do |book, index|
         puts "#{index + 1} - Book title: #{book.title}, Book author: #{book.author}"
@@ -31,7 +30,7 @@ class App
 
   def person_object(id)
     @persons.each do |person|
-     return person if person.id===id
+      return person if person.id == id
     end
     nil
   end
@@ -43,8 +42,8 @@ class App
     id = gets.chomp.to_i
     person = person_object(id)
     if person.nil?
-      puts "Wrong input, Please type correct ID" 
-    return
+      puts 'Wrong input, Please type correct ID'
+      return
     end
     rentals = person.rentals
     if rentals.length.zero?
@@ -126,7 +125,6 @@ class App
     puts "Rental created succesfully -
     book: #{@books[book_index - 1].title}, Person: #{@persons[person_index - 1].name}, Date: #{date}"
   end
-
   # rubocop:disable Metrics/CyclomaticComplexity
 
   def handle_input(option)
@@ -153,14 +151,9 @@ class App
   # rubocop:enable Metrics/CyclomaticComplexity
 
   def print_message
-    puts "\nPlease choose a option by entring a number
-            1 - List all books
-            2 - List all people
-            3 - Create a person
-            4 - Create a book
-            5 - Create a rental
-            6 - List all rentals for a given person id
-            7 - Exit"
+    puts "\nPlease choose a option by entring a number\n1 - List all books\n2 - List all people
+3 - Create a person\n4 - Create a book/n5 - Create a rental
+6 - List all rentals for a given person id\n7 - Exit"
     option = gets.chomp.to_i
     handle_input(option)
     print_message
