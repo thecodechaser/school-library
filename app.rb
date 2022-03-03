@@ -95,6 +95,7 @@ class App
     person_index = gets.chomp.to_i
     print "Enter date: "
     date = gets.chomp
+    Rental.new(date, @persons{book_index-1}, @books[book_index-1])
     puts "Rental created succesfully - book: #{@books[book_index-1].title}, Person: #{@persons[person_index-1].name}, Date: #{date}"
   end
 
