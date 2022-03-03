@@ -15,7 +15,7 @@ class App
     end
   end
 
-  def list_people
+  def list_persons
     if @persons.length.zero?
       puts "There's no people, Please add a person first"
     else
@@ -91,7 +91,7 @@ class App
     list_books
     book_index = gets.chomp.to_i
     print "Select a person by number: "
-    list_people
+    list_persons
     person_index = gets.chomp.to_i
     print "Enter date: "
     date = gets.chomp
@@ -103,7 +103,7 @@ class App
     when 1
       list_books
     when 2
-      list_people
+      list_persons
     when 3
       create_person
     when 4
