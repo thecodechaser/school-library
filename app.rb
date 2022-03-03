@@ -34,14 +34,14 @@ class App
     list_persons
     print_message if @persons.length.zero?
     person_index = gets.chomp.to_i
-    rentals = @persons[person_index-1].rentals
+    rentals = @persons[person_index - 1].rentals
     if rentals.length.zero?
-      puts "No rentals for this person"
-    else 
+      puts 'No rentals for this person'
+    else
       rentals.each_with_index do |rent, index|
-        puts "#{index+1} - Date: #{rent.date}, Book: #{rent.book.title} by #{rent.person.name}"
+        puts "#{index + 1} - Date: #{rent.date}, Book: #{rent.book.title} by #{rent.person.name}"
       end
-      end
+    end
   end
 
   def create_teacher
@@ -115,6 +115,8 @@ class App
     book: #{@books[book_index - 1].title}, Person: #{@persons[person_index - 1].name}, Date: #{date}"
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
+
   def handle_input(option)
     case option
     when 1
@@ -136,6 +138,7 @@ class App
          print_message
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def print_message
     puts "\nPlease choose a option by entring a number
