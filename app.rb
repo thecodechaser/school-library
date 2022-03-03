@@ -29,12 +29,24 @@ class App
     end
   end
 
+  def person_object(id)
+    @persons.each do |person|
+     return person if person.id===id
+    end
+    nil
+  end
+
   def list_rentals
-    puts 'Select a person by number: '
+    puts 'Select a person by ID: '
     list_persons
     print_message if @persons.length.zero?
-    person_index = gets.chomp.to_i
-    rentals = @persons[person_index - 1].rentals
+    id = gets.chomp.to_i
+    person = person_object(id)
+    if person.nil?
+      puts "Wrong input, Please type correct ID" 
+    return
+    end
+    rentals = person.rentals
     if rentals.length.zero?
       puts 'No rentals for this person, Please add a rental first'
     else
