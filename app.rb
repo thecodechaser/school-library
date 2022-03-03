@@ -41,6 +41,7 @@ class App
       rentals.each_with_index do |rent, index|
         puts "#{index+1} - Date: #{rent.date}, Book: #{rent.book.title} by #{rent.person.name}"
       end
+      end
   end
 
   def create_teacher
@@ -109,7 +110,7 @@ class App
     person_index = gets.chomp.to_i
     print 'Enter date: '
     date = gets.chomp
-    Rental.new(date, @persons[book_index - 1], @books[book_index - 1])
+    Rental.new(date, @persons[person_index - 1], @books[book_index - 1])
     puts "Rental created succesfully -
     book: #{@books[book_index - 1].title}, Person: #{@persons[person_index - 1].name}, Date: #{date}"
   end
