@@ -29,7 +29,19 @@ class App
     end
   end
 
-  def list_rentals; end
+  def list_rentals
+    puts 'Select a person by number: '
+    list_persons
+    print_message if @persons.length.zero?
+    person_index = gets.chomp.to_i
+    rentals = @persons[person_index-1].rentals
+    if rentals.length.zero?
+      puts "No rentals for this person"
+    else 
+      rentals.each_with_index do |rent, index|
+        puts "#{index+1} - Date: #{rent.date}, Book: #{rent.book.title} by #{rent.person.name}"
+      end
+  end
 
   def create_teacher
     print 'Teacher name: '
