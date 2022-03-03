@@ -87,16 +87,17 @@ class App
   end
 
   def create_rental
-    print "Select a book by number: "
+    print 'Select a book by number: '
     list_books
     book_index = gets.chomp.to_i
-    print "Select a person by number: "
+    print 'Select a person by number: '
     list_persons
     person_index = gets.chomp.to_i
-    print "Enter date: "
+    print 'Enter date: '
     date = gets.chomp
-    Rental.new(date, @persons{book_index-1}, @books[book_index-1])
-    puts "Rental created succesfully - book: #{@books[book_index-1].title}, Person: #{@persons[person_index-1].name}, Date: #{date}"
+    Rental.new(date, @persons[book_index - 1], @books[book_index - 1])
+    puts "Rental created succesfully - book: #{@books[book_index - 1].title},
+    Person: #{@persons[person_index - 1].name}, Date: #{date}"
   end
 
   def handle_input(option)
