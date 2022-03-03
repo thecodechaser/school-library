@@ -89,20 +89,16 @@ class App
   def create_rental
     puts 'Select a book by number '
     list_books
-    if @books.length.zero?
-      print_message
-    end
+    print_message if @books.length.zero?
     book_index = gets.chomp.to_i
     puts 'Select a person by number: '
     list_persons
-    if @persons.length.zero?
-      print_message
-    end
+    print_message if @persons.length.zero?
     person_index = gets.chomp.to_i
     print 'Enter date: '
     date = gets.chomp
     Rental.new(date, @persons[book_index - 1], @books[book_index - 1])
-    puts "Rental created succesfully - 
+    puts "Rental created succesfully -
     book: #{@books[book_index - 1].title}, Person: #{@persons[person_index - 1].name}, Date: #{date}"
   end
 
