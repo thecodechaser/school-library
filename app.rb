@@ -21,9 +21,9 @@ class App
     else
       @persons.each_with_index do |person, index|
         if person.is_a?(Teacher)
-          puts "[Teacher] #{index + 1} - Name: #{person.name}, Age: #{person.age}"
+          puts "[Teacher] #{index + 1} - ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
         else
-          puts "[Student] #{index + 1} - Name: #{person.name}, Age: #{person.age}"
+          puts "[Student] #{index + 1} - ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
         end
       end
     end
