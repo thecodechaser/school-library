@@ -49,6 +49,7 @@ module App
     else
       rentals.each_with_index do |rent, index|
         puts "#{index + 1} - Date: #{rent.date}, Book: #{rent.book.title} by #{rent.person.name}"
+        enter_msg
       end
     end
   end
