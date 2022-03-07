@@ -35,6 +35,21 @@ include App
     end
   end
 
+  def print_message
+    puts "\nPlease choose a option by entring a number
+    1 - List all books
+    2 - List all people
+    3 - Create a person
+    4 - Create a book
+    5 - Create a rental
+    6 - List all rentals for a given person id
+    7 - Exit"
+    print "\n"+INPUT_MSG
+    option = gets.chomp.to_i
+    handle_input(option)
+    print_message
+  end
+
    # rubocop:disable Metrics/CyclomaticComplexity
 
  def handle_input(option)
@@ -61,21 +76,6 @@ include App
   end
 end
 # rubocop:enable Metrics/CyclomaticComplexity
-
-  def print_message
-    puts "\nPlease choose a option by entring a number
-    1 - List all books
-    2 - List all people
-    3 - Create a person
-    4 - Create a book
-    5 - Create a rental
-    6 - List all rentals for a given person id
-    7 - Exit"
-    print "\n"+INPUT_MSG
-    option = gets.chomp.to_i
-    handle_input(option)
-    print_message
-  end
 
 def main
   puts 'Welcome to school library! - Ranjeet Singh'
