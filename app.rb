@@ -1,6 +1,6 @@
 module App
-  ENTER_MSG = 'Press ENTER to continue: '.freeze
   INPUT_MSG = 'Enter an option number here: '.freeze
+  ENTER_MSG = 'Press ENTER to continue: '.freeze
   
   def list_books
     if @books.length.zero?
