@@ -18,25 +18,6 @@ include Display
     gets
   end
 
-  def create_person
-    puts "\nPlease choose a option by entring a number
-    1 -  Create a teacher
-    2 -  Create a student"
-    print "\n#{INPUT_MSG}"
-    option = gets.chomp.to_i
-    case option
-    when 1
-      @persons.push(create_teacher)
-      puts 'Teacher created successfully!'
-    when 2
-      @persons.push(create_student)
-      puts 'Student created successfully!'
-    else
-      puts 'Please select a correct option'
-      create_person
-    end
-  end
-
   def print_message
     puts "\nPlease choose a option by entring a number
     1 - List all books
@@ -63,9 +44,9 @@ include Display
       list_persons
       enter_msg
     when 3
-      create_person
+      create_person_input
     when 4
-      create_book
+      create_book_input
     when 5
       create_rental
     when 6

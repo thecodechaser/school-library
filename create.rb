@@ -9,22 +9,21 @@ module Create
     nil
   end
 
-
-  def create_teacher
-    print 'Teacher name: '
-    name = gets.chomp
-    print 'Teacher age: '
-    age = gets.chomp
+  def create_teacher(name, age)
     print 'Specialization: '
     specialization = gets.chomp
     Teacher.new(age, specialization, name)
   end
 
-  def create_student
-    print 'Student name: '
+  def create_teacher_input
+    print 'Teacher name: '
     name = gets.chomp
-    print 'Student age: '
+    print 'Teacher age: '
     age = gets.chomp
+    create_student(name, age)
+  end
+
+  def create_student(name, age)
     print 'Parent permission [y/n]:'
     permission = gets.chomp
     case permission
@@ -38,13 +37,49 @@ module Create
     end
   end
 
-  def create_book
+  def create_student_input
+    print 'Student name: '
+    name = gets.chomp
+    print 'Student age: '
+    age = gets.chomp
+    create_student(name, age)
+  end
+
+  def create_person(option)
+    case option
+    when 1
+      @persons.push(create_teacher_input)
+      puts 'Teacher created successfully!'
+    when 2
+      @persons.push(create_student_input)
+      puts 'Student created successfully!'
+    else
+      puts 'Please select a correct option'
+      create_person_input
+    end
+  end
+
+  def create_person_input
+    puts "\nPlease choose a option by entring a number
+    1 -  Create a teacher
+    2 -  Create a student"
+    print "\n#{INPUT_MSG}"
+    option = gets.chomp.to_i
+    create_person(option)
+  end
+
+  def create_book(title, author)
+
+    @books.push(Book.new(title, author))
+    puts 'Book create successfully'
+  end
+
+  def create_book_input
     puts 'Enter book title'
     title = gets.chomp
     puts 'Enter book author'
     author = gets.chomp
-    @books.push(Book.new(title, author))
-    puts 'Book create successfully'
+    create_book(title, author)
   end
 
   def create_rental
