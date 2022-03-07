@@ -48,7 +48,7 @@ include Display
     when 4
       create_book_input
     when 5
-      create_rental
+      create_rental_input
     when 6
       list_rentals
       enter_msg

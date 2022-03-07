@@ -20,7 +20,7 @@ module Create
     name = gets.chomp
     print 'Teacher age: '
     age = gets.chomp
-    create_student(name, age)
+    create_teacher(name, age)
   end
 
   def create_student(name, age)
@@ -69,7 +69,6 @@ module Create
   end
 
   def create_book(title, author)
-
     @books.push(Book.new(title, author))
     puts 'Book create successfully'
   end
@@ -82,7 +81,13 @@ module Create
     create_book(title, author)
   end
 
-  def create_rental
+  def create_rental(person_index, book_index, date)
+    Rental.new(date, @persons[person_index - 1], @books[book_index - 1])
+    puts "Rental created succesfully -
+    book: #{@books[book_index - 1].title}, Person: #{@persons[person_index - 1].name}, Date: #{date}"
+  end
+
+  def create_rental_input
     puts 'Select a book by number '
     list_books
     print_message if @books.length.zero?
@@ -95,8 +100,6 @@ module Create
     person_index = gets.chomp.to_i
     print 'Enter date: '
     date = gets.chomp
-    Rental.new(date, @persons[person_index - 1], @books[book_index - 1])
-    puts "Rental created succesfully -
-    book: #{@books[book_index - 1].title}, Person: #{@persons[person_index - 1].name}, Date: #{date}"
+    create_rental(person_index, book_index, date)
   end
 end
