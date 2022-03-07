@@ -7,7 +7,7 @@ require './display'
 
 class Main
   include Create
-include Display
+  include Display
   def initialize
     @books = []
     @persons = []
