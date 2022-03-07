@@ -2,8 +2,8 @@ require './student'
 require './teacher'
 require './book'
 require './rental'
-require './create'
-require './display'
+require './modules/create'
+require './modules/display'
 
 class Main
   include Create
