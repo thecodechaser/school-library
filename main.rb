@@ -3,9 +3,11 @@ require './teacher'
 require './book'
 require './rental'
 require './create'
+require './display'
 
 class Main
   include Create
+include Display
   def initialize
     @books = []
     @persons = []
