@@ -1,4 +1,4 @@
-module App
+module Create
   INPUT_MSG = 'Enter an option number here: '.freeze
   ENTER_MSG = 'Press ENTER to continue: '.freeze
 

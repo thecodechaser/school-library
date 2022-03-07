@@ -2,10 +2,10 @@ require './student'
 require './teacher'
 require './book'
 require './rental'
-require './app'
+require './create'
 
 class Main
-  include App
+  include Create
   def initialize
     @books = []
     @persons = []
