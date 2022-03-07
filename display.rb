@@ -24,5 +24,23 @@ module Display
         end
       end
 
-     
+      def list_rentals
+        puts 'Select a person by ID: '
+        list_persons
+        print_message if @persons.length.zero?
+        id = gets.chomp.to_i
+        person = person_object(id)
+        if person.nil?
+          puts 'Wrong input, Please type correct ID'
+          return
+        end
+        rentals = person.rentals
+        if rentals.length.zero?
+          puts 'No rentals for this person, Please add a rental first'
+        else
+          rentals.each_with_index do |rent, index|
+            puts "#{index + 1} - Date: #{rent.date}, Book: #{rent.book.title} by #{rent.person.name}"
+          end
+        end
+      end
 end
