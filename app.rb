@@ -3,7 +3,7 @@ require './teacher'
 require './book'
 require './rental'
 
-class App
+Mdoule App
   def list_books
     if @books.length.zero?
       puts "There's no book, Please add a book first"
