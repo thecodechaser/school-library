@@ -5,14 +5,14 @@ require './rental'
 require './app'
 
 class Main
-include App
+  include App
   def initialize
     @books = []
     @persons = []
   end
 
-  def enter_msg 
-    print "\n"+ENTER_MSG
+  def enter_msg
+    print "\n#{ENTER_MSG}"
     gets
   end
 
@@ -20,7 +20,7 @@ include App
     puts "\nPlease choose a option by entring a number
     1 -  Create a teacher
     2 -  Create a student"
-    print "\n"+INPUT_MSG
+    print "\n#{INPUT_MSG}"
     option = gets.chomp.to_i
     case option
     when 1
@@ -44,44 +44,44 @@ include App
     5 - Create a rental
     6 - List all rentals for a given person id
     7 - Exit"
-    print "\n"+INPUT_MSG
+    print "\n#{INPUT_MSG}"
     option = gets.chomp.to_i
     handle_input(option)
     print_message
   end
 
-   # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
 
- def handle_input(option)
-  case option
-  when 1
-    list_books
-    enter_msg
-  when 2
-    list_persons
-    enter_msg
-  when 3
-    create_person
-  when 4
-    create_book
-  when 5
-    create_rental
-  when 6
-    list_rentals
-  when 7
-    puts 'Thank you for using this app - Written by Ranjeet Singh'
-    exit
-  else puts 'Please select a valid option'
-       print_message
+  def handle_input(option)
+    case option
+    when 1
+      list_books
+      enter_msg
+    when 2
+      list_persons
+      enter_msg
+    when 3
+      create_person
+    when 4
+      create_book
+    when 5
+      create_rental
+    when 6
+      list_rentals
+      enter_msg
+    when 7
+      puts 'Thank you for using this app - Written by Ranjeet Singh'
+      exit
+    else puts 'Please select a valid option'
+         print_message
+    end
   end
-end
-# rubocop:enable Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/MethodLength
 
-def main
-  puts 'Welcome to school library! - Ranjeet Singh'
+  def main
+    puts 'Welcome to school library! - Ranjeet Singh'
     print_message
-end
-
+  end
 end
 
 Main.new.main

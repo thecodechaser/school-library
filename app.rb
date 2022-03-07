@@ -1,7 +1,7 @@
 module App
   INPUT_MSG = 'Enter an option number here: '.freeze
   ENTER_MSG = 'Press ENTER to continue: '.freeze
-  
+
   def list_books
     if @books.length.zero?
       puts "There's no book, Please add a book first"
@@ -49,7 +49,6 @@ module App
     else
       rentals.each_with_index do |rent, index|
         puts "#{index + 1} - Date: #{rent.date}, Book: #{rent.book.title} by #{rent.person.name}"
-        enter_msg
       end
     end
   end
@@ -95,12 +94,12 @@ module App
     puts 'Select a book by number '
     list_books
     print_message if @books.length.zero?
-    print "\n"+INPUT_MSG
+    print "\n#{INPUT_MSG}"
     book_index = gets.chomp.to_i
     puts 'Select a person by number: '
     list_persons
     print_message if @persons.length.zero?
-    print "\n"+INPUT_MSG
+    print "\n#{INPUT_MSG}"
     person_index = gets.chomp.to_i
     print 'Enter date: '
     date = gets.chomp
