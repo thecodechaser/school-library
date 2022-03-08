@@ -1,4 +1,5 @@
 require './person'
+require './book'
 
 describe Person do
   context 'When testing the Person class' do
@@ -6,6 +7,9 @@ describe Person do
     name = 'ranjeetsingh'
     parent_permission = true
     person = Person.new(age, name, parent_permission: parent_permission)
+
+    book = Book.new("The lord of the rings", "Mike stephen")
+    date = "20/13/2022"
 
     it 'should validate the age of the person' do
       expect(person.age).to eq age
@@ -23,6 +27,11 @@ describe Person do
       person.validate_name
      expect(person.name). to eq 'Ranjeetsin'
      end
+
+     it 'should validate the rental of the person' do
+      person.add_rental(book, date)
+      expect(person.rentals.length).to eq 1
+    end
   end
   
 end
