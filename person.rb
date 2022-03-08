@@ -18,7 +18,7 @@ class Person
   attr_reader :id, :rentals, :parent_permission
 
   def can_use_services?
-    of_age || @parent_permission
+    of_age? || @parent_permission
   end
 
   def validate_name
