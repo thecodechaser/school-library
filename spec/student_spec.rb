@@ -18,5 +18,9 @@ describe Student do
     it 'should return parent permission for student' do
       expect(student.parent_permission).to be parent_permission
     end
+
+    it 'should validate the play_hooky for student' do
+      expect(student.play_hooky).to eq "¯\(ツ)/¯"
+    end
   end
 end
