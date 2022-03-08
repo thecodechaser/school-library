@@ -2,15 +2,18 @@ require './student'
 require './teacher'
 require './book'
 require './rental'
-require './create'
-require './display'
+require './modules/create'
+require './modules/display'
+require './modules/process_data'
 
 class Main
   include Create
   include Display
+  include ProcessData
   def initialize
-    @books = []
-    @persons = []
+    @books = load_books
+    @persons = load_persons
+    @rentals = load_rentals
   end
 
   def enter_msg
@@ -54,6 +57,7 @@ class Main
       enter_msg
     when 7
       puts 'Thank you for using this app - Written by Ranjeet Singh'
+      save_data
       exit
     else puts 'Please select a valid option'
          print_message
@@ -67,4 +71,6 @@ class Main
   end
 end
 
-Main.new.main
+library = Main.new
+
+library.main
