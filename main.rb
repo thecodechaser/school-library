@@ -12,7 +12,7 @@ class Main
 include ProcessData
   def initialize
     @books = load_books
-    @persons = []
+    @persons = load_persons
   end
 
   def enter_msg
