@@ -4,12 +4,14 @@ require './book'
 require './rental'
 require './modules/create'
 require './modules/display'
+require './modules/processData'
 
 class Main
   include Create
   include Display
+include ProcessData
   def initialize
-    @books = []
+    @books = load_books
     @persons = []
   end
 
@@ -54,6 +56,7 @@ class Main
       enter_msg
     when 7
       puts 'Thank you for using this app - Written by Ranjeet Singh'
+      save_data
       exit
     else puts 'Please select a valid option'
          print_message
@@ -67,4 +70,6 @@ class Main
   end
 end
 
-Main.new.main
+library = Main.new
+
+library.main
