@@ -82,7 +82,8 @@ module Create
   end
 
   def create_rental(person_index, book_index, date)
-   Rental.new(date, @persons[person_index - 1], @books[book_index - 1])
+  rental = Rental.new(date, @persons[person_index - 1], @books[book_index - 1])
+  @rentals.push(rental)
     puts "Rental created succesfully -
     book: #{@books[book_index - 1].title}, Person: #{@persons[person_index - 1].name}, Date: #{date}"
   end

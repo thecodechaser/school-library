@@ -13,6 +13,7 @@ include ProcessData
   def initialize
     @books = load_books
     @persons = load_persons
+    @rentals = load_rentals
   end
 
   def enter_msg
