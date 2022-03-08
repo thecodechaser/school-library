@@ -3,7 +3,7 @@ require './person'
 describe Person do
   context 'When testing the Person class' do
     age = '22'
-    name = 'Bohdan'
+    name = 'ranjeetsingh'
     parent_permission = true
     person = Person.new(age, name, parent_permission: parent_permission)
 
@@ -18,5 +18,11 @@ describe Person do
     it 'should validate parent permission for parent' do
       expect(person.parent_permission).to be parent_permission
     end
+
+    it 'should validate capitalized name and trim to 10 length' do
+      person.validate_name
+     expect(person.name). to eq 'Ranjeetsin'
+     end
   end
+  
 end
