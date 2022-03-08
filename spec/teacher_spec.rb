@@ -2,23 +2,20 @@ require './teacher'
 
 describe Teacher do
   context "When testing the Teacher class" do
-    it "the teacher class should create a instance of the class" do
-      name = "Bohdan"
-      age = "22"
+    age = "45"
+      name = "Samuel"
       specialization = "astronomy"
       teacher = Teacher.new(age, specialization, name)
-      expect(teacher.name).to eq name
+
+    it "should validate the age of the teacher" do
       expect(teacher.age).to eq age
-      expect(teacher.specialization).to eq specialization
     end
 
-    it "the teacher class should create a instance of the class" do
-      name = "Ranjeet"
-      age = "22"
-      specialization = "Web development"
-      teacher = Teacher.new(age, specialization, name)
+    it "should validate the name of the teacher" do
       expect(teacher.name).to eq name
-      expect(teacher.age).to eq age
+    end
+
+    it "should return parent permission for teacher" do
       expect(teacher.specialization).to eq specialization
     end
   end
