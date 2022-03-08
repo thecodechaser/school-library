@@ -1,7 +1,6 @@
 require 'json'
 
 module ProcessData
-
   def load_books
     if File.exist?('data/books.json')
       JSON.parse(File.read('data/books.json')).map do |book|
@@ -27,11 +26,11 @@ module ProcessData
   end
 
   def get_person(id)
-    @persons.select{|person| person.id ==id}[0]
+    @persons.select { |person| person.id == id }[0]
   end
 
   def get_book(id)
-    @books.select{|book| book.id ==id}[0]
+    @books.select { |book| book.id == id }[0]
   end
 
   def load_rentals
@@ -52,5 +51,4 @@ module ProcessData
     File.write('data/persons.json', JSON.generate(@persons)) if @persons.any?
     File.write('data/rentals.json', JSON.generate(@rentals)) if @rentals.any?
   end
-
 end

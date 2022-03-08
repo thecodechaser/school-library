@@ -18,5 +18,4 @@ class Rental
       'book_id' => @book.id
     }.to_json(*args)
   end
-
 end

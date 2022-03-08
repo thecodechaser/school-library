@@ -1,15 +1,16 @@
 require './rental'
 
+# rubocop:disable Style/ClassVars
 class Book
-  @@id =1
+  @@id = 1
   attr_accessor :title, :author
   attr_reader :rentals, :id
 
   def initialize(title, author)
     @title = title
     @author = author
-    @id =@@id
-    @@id +=1
+    @id = @@id
+    @@id += 1
     @rentals = []
   end
 
@@ -24,5 +25,5 @@ class Book
       'author' => @author
     }.to_json(*args)
   end
-  
 end
+# rubocop:enable Style/ClassVars

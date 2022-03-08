@@ -4,12 +4,12 @@ require './book'
 require './rental'
 require './modules/create'
 require './modules/display'
-require './modules/processData'
+require './modules/process_data'
 
 class Main
   include Create
   include Display
-include ProcessData
+  include ProcessData
   def initialize
     @books = load_books
     @persons = load_persons

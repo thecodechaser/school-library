@@ -1,11 +1,12 @@
 require './corrector'
 require './rental'
 
+# rubocop:disable Style/ClassVars
 class Person
-  @@id =1
+  @@id = 1
   def initialize(age, name = 'Unknown', parent_permission: true)
     @id = @@id
-    @@id +=1
+    @@id += 1
     @name = name
     @age = age
     @parent_permission = parent_permission
@@ -44,3 +45,4 @@ class Person
     @age >= 18
   end
 end
+# rubocop:enable Style/ClassVars
