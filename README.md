@@ -18,6 +18,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Install
 - Ruby
+- Rspec
 
 ### Using it Locally
 
@@ -41,6 +42,13 @@ OR
 ```bash
 open terminal
 run ruby available_files.rb
+```
+
+- To run the tests
+```baash
+open terminal and run the commands
+gem install rspec                (install rspec test library)
+rspec file_directory/file_name   (run the test files)
 ```
 
 ## Visit And Open Files
